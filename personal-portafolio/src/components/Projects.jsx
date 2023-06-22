@@ -4,6 +4,8 @@ import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import ProjectCard from "./ProjectCard";
 import colorSharp2 from "../assets/img/color-sharp2.png"
+import TrackVisibility from 'react-on-screen'
+import 'animate.css'
 import '../App.css'
 
 export default function Projects () {
@@ -41,10 +43,16 @@ export default function Projects () {
     ]
 
     return (
-        <section className="project" id="project">
+        <section className="project" id="projects">
             <Container>
                 <Row>
                     <Col>
+                        <TrackVisibility>
+                            {({isVisible}) => 
+                                <div className={isVisible ? "animate__animated animate__bounce" : ""}>
+                                </div>
+                            }
+                        </TrackVisibility>
                         <h2>Projects</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar semper ante, at viverra ante tincidunt a. Praesent vitae massa a leo tristique vehicula tempor non quam. Morbi at condimentum risus. Duis ac tempor felis. Donec vitae malesuada purus. Fusce et hendrerit nunc. Integer ut egestas dui. Suspendisse potenti. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris condimentum arcu eu lacus efficitur, at tempus libero imperdiet. Vivamus auctor, turpis iaculis vestibulum semper, velit leo imperdiet orci, at mollis mi velit id orci.</p>
                         <Tab.Container id="projects-tabs" defaultActiveKey="first">
@@ -81,7 +89,7 @@ export default function Projects () {
                     </Col>
                 </Row>
             </Container>
-            <img className="backgorund-image-right" src={colorSharp2} />
+            <img className="background-image-right" src={colorSharp2} />
         </section>
     )
 }
